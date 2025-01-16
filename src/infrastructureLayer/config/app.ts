@@ -19,7 +19,7 @@ export const httpServer = http.createServer(app)
 
 // CORS Configuration
 app.use(cors({
-  origin: process.env.CORS_URL,
+  origin: process.env.PORT,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
