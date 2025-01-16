@@ -3,7 +3,11 @@ import express from 'express';
 const route = express.Router();
 
 
-route.post('/signup', (req, res, next) => alert('ready'));
+route.post('/signup', (req, res, next) =>{
+    let variable = 'ready to go'
+    res.status(201).json({ variable });
+})
+
 
 
 
