@@ -29,6 +29,12 @@ app.use(
     })
 )
 
+app.get('/',(req,res)=>{
+  
+    res.send('This is Nutro backend:Nutro Backend is Running')
+    
+  })
+
 
 app.use("/api/user", UserRoute);
 
