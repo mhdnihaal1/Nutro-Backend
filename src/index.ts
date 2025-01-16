@@ -16,6 +16,10 @@ require('dotenv').config();
 // const jwt = require('jsonwebtoken');
 // const { authenticateToken } = require('./utilities')
 
+import UserRoute from './infrastructureLayer/router/user-route'
+import AdminRoute from './infrastructureLayer/router/admin-route'
+import AgentRoute from './infrastructureLayer/router/agent-route'
+
 app.use(express.json())
 
 app.use(
@@ -26,7 +30,11 @@ app.use(
 )
 
 
+app.use("/api/user", UserRoute);
 
+app.use("/api/admin", AdminRoute);
+
+app.use("/api/agent", AgentRoute);
 
 
 app.listen(8000,()=>{
