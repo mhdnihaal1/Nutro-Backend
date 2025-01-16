@@ -20,7 +20,8 @@ app.use(express.json())
 
 app.use(
     cors({
-        origin:"*",
+        origin: "http://localhost:3000", // Specify the frontend URL
+        credentials: true, // Allow credentials (cookies, tokens)
     })
 )
 
