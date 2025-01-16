@@ -17,6 +17,8 @@ const app = express();
 
 export const httpServer = http.createServer(app)
 
+
+
 // CORS Configuration
 app.use(cors({
   origin: process.env.PORT,
@@ -37,6 +39,11 @@ app.use(session({
 }));
 
 // Mount routes
+app.get('/',(req,res)=>{
+  res.send('Backend is okey ')
+});
+
+
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/agent", agentRoute);
