@@ -20,14 +20,12 @@ app.use(express.json())
 
 app.use(
     cors({
-        origin: "http://localhost:3000", // Specify the frontend URL
+        origin: process.env.PORT, // Specify the frontend URL
         credentials: true, // Allow credentials (cookies, tokens)
     })
 )
 
-app.get('/',(req:Request,res:Response)=>{
-    res.json({ data : "hello " })
-})
+
 
 
 
