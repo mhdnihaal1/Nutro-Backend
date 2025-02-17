@@ -1,20 +1,21 @@
-import mongoose from "mongoose"
-import {DB_NAME} from "./constant"
+import mongoose from "mongoose";
+import { DB_NAME } from "./constant";
 
-const connectDB=async ()=>{
-    try{
-        const mongo_uri=process.env.MONGODB_URI
+const connectDB = async () => {
+  try {
+    const mongo_uri =
+      process.env.MONGODB_URI ||
+      "mongodb://localhost:27017/Nutro-Laundry-Service";
 
-        if(mongo_uri){
-            const connectionInstance=await mongoose.connect(mongo_uri)
-            console.log(`\n MogoDB connected ! ! DB HOST: ${connectionInstance.connection.host}`);
-
-        }
-    }  catch (error) {
-        const err:Error = error as Error;
-        console.log("Error connecting to MongoDB",err)
-        process.exit(1)
+    if (mongo_uri) {
+      await mongoose.connect(mongo_uri);
     }
-}
+  } catch (error) {
+    const err: Error = error as Error;
+    console.log("Error connecting to MongoDB", err);
+    process.exit(1);
+  }
+};
 
-export {connectDB}
+export { connectDB };
+ 

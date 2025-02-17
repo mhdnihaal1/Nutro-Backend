@@ -1,13 +1,11 @@
-interface IUser {
-  [x: string]: any;
-  _id: Object;
+interface IAdmin {
+  _id: string;
   name: string;
   phone: number;
   email: string;
   password: string;
-  userStatus: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
 
-export default IUser;
+export default IAdmin;
