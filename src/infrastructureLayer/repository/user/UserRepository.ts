@@ -80,7 +80,7 @@ class UserRepository implements UserRepo {
   }
 
   async deleteOtpByEmail(email: string): Promise<any> {
-    return OtpModel.deleteMany({ email });
+    return await OtpModel.deleteMany({ email });
   }
 
   async getItems(): Promise<IClothItem | any> {
@@ -310,7 +310,7 @@ class UserRepository implements UserRepo {
     agent: IAgent,
     cartTotal: string,
     selectedMode: string,
-    paymentMethod:string
+    paymentMethod: string
   ): Promise<IOrder | any> {
     const orders = cartItems.items.map((item: any) => ({
       clothItemId: item.clothItemId,
@@ -337,7 +337,7 @@ class UserRepository implements UserRepo {
       totalPrice: cartTotal,
       deliveryMode: selectedMode,
       agentId: new mongoose.Types.ObjectId(Object(agent._id)),
-      paymentMethod:paymentMethod
+      paymentMethod: paymentMethod,
     });
 
     const savedOrder = await newOrder.save();
@@ -403,21 +403,16 @@ class UserRepository implements UserRepo {
     return newConcern;
   }
 
-  async findUserByEmail(email:string): Promise<IUser | any>{
-    return await UserModel.findOne({ email }); // Ensure it returns a document
-
+  async findUserByEmail(email: string): Promise<IUser | any> {
+    return await UserModel.findOne({ email });
   }
-  
-  async SavePassword(
-    password: string,
-    email: string
-  ): Promise<IUser | any> {
-    if ( !password || !email) {
+
+  async SavePassword(password: string, email: string): Promise<IUser | any> {
+    if (!password || !email) {
       return "All fields are required";
     }
 
-  const user = await UserModel.findOne({email:email})
-
+    const user = await UserModel.findOne({ email: email });
 
     return user;
   }

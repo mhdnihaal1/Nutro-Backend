@@ -84,7 +84,7 @@ class AdminUsecase {
       );
 
       if (passwordMatch) {
-        token = this.JwtToken.generateToken(data._id, "admin");
+        token =await this.JwtToken.generateToken(data._id, "admin");
 
         return {
           status: 200,
@@ -464,7 +464,7 @@ class AdminUsecase {
 
   async sendReply(userId: string, replyTextr: string) {
     const user = await this.AdminRepository.getOneUser(userId);
-    this.generateEmail.sendConcernReplyMail(user?.email, replyTextr);
+    await this.generateEmail.sendConcernReplyMail(user?.email, replyTextr);
 
     return "Reply sent successfully!";
   }

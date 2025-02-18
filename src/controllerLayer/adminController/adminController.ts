@@ -101,7 +101,7 @@ class adminController {
       if (!mode || !rate) {
         return res.status(400).json({ message: "Mode and rate are required." });
       }
-      const newDeliveryMode = this.adminUsecase.addDeliveryMode(mode, rate);
+      const newDeliveryMode =await this.adminUsecase.addDeliveryMode(mode, rate);
       return res.status(201).json(newDeliveryMode);
     } catch (error) {
       console.log(error);

@@ -42,8 +42,7 @@ class AgentUsecase {
       );
 
       if (passwordMatch) {
-        token = this.JwtToken.generateToken(data._id.toString(), "agent");
-        console.log(2);
+        token = await this.JwtToken.generateToken(data._id.toString(), "agent");
 
         return {
           status: 200,
@@ -136,6 +135,7 @@ class AgentUsecase {
     const sended = this.generateEmail.sendMail(email, Number(otp));
 
     console.log(sended);
+    return "Forget password sended successfully"
   }
 }
 
