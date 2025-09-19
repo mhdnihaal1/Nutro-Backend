@@ -14,6 +14,9 @@ class sendOtp implements Nodemailer {
         user: "nihalmuhaednihal@gmail.com",
         pass: "ixvz kvcj ruqt wjyj",
       },
+  tls: {
+    rejectUnauthorized: false,  
+  },
     });
   }
  
@@ -47,7 +50,7 @@ class sendOtp implements Nodemailer {
     };
     this.transporter.sendMail(mailOptions, (err: any) => {
       if (err) {
-        console.log("err  from send mail  :", err);
+        console.log("err  from send mail1  :", err);
       } else {
         console.log("Cancel Mail  sent successfully");
       }
