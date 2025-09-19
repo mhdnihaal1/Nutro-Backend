@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+ dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
+console.log("Resolved path:", path.resolve(__dirname, "../../../.env"));
+
 import express from "express";
 
 import cookieParser from "cookie-parser";
