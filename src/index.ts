@@ -1,13 +1,13 @@
-import { httpServer } from "./infrastructureLayer/config/app";
+import app,{ httpServer } from "./infrastructureLayer/config/app";
 import { connectDB } from "./infrastructureLayer/config/connect-DB";
 
-const PORT =   8000;
+const MYPORT = process.env.MYPORT ;
 
 const startServer = async (): Promise<void> => {
-  await connectDB();
+  await connectDB(); 
   const app = httpServer;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  app.listen(MYPORT, () => {
+    console.log(`Server running on port ${MYPORT}`);
   });
 };
 
