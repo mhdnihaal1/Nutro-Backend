@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { DB_NAME } from "./constant";
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
     const mongo_uri =
       process.env.MONGO_URL ||
@@ -16,5 +16,4 @@ const connectDB = async () => {
   }
 };
 
-export { connectDB };
- 
+  
