@@ -8,14 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const app_1 = require("./infrastructureLayer/config/app");
+const app_1 = __importDefault(require("./infrastructureLayer/config/app"));
 const connect_DB_1 = require("./infrastructureLayer/config/connect-DB");
 const PORT = process.env.PORT || 8000;
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield (0, connect_DB_1.connectDB)();
-        app_1.httpServer.listen(PORT, () => {
+        app_1.default.listen(PORT, () => {
             console.log(`✅ Server running on port ${PORT}`);
         });
     }
@@ -25,3 +28,12 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 startServer();
+// const express = require('express')
+// const app = express()
+// const port = process.env.PORT || 4000
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })

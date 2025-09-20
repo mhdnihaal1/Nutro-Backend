@@ -63,6 +63,9 @@ app.use((0, express_session_1.default)({
     resave: false,
     saveUninitialized: false,
 }));
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 app.use("/api/user", user_route_1.default);
 app.use("/api/admin", admin_route_1.default);
 app.use("/api/agent", agent_route_1.default);
