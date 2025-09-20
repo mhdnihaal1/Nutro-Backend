@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8000;
 const startServer = async (): Promise<void> => {
   try {
     await connectDB();
-    httpServer.listen(PORT, () => {
+    app.listen(PORT, () => {
       console.log(`✅ Server running on port ${PORT}`);
     });
   } catch (err) {
@@ -16,3 +16,16 @@ const startServer = async (): Promise<void> => {
 };
 
 startServer();
+
+
+// const express = require('express')
+// const app = express()
+// const port = process.env.PORT || 4000
+
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
+
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })

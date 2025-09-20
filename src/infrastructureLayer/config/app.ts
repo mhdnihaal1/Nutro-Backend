@@ -40,6 +40,9 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
