@@ -74,14 +74,17 @@ class UserRepository implements AdminRepo {
 
     const newAgent = new agentModel(agent);
     const savedAgent = await newAgent.save();
+        console.log(savedAgent)
+
     return savedAgent;
   }
 
   async AddMap(map: IMap): Promise<IMap | any> {
     const { sl_no } = map;
+      console.log(13)
 
     const existMap = await mapModel.findOne({ sl_no: sl_no });
-
+     console.log(existMap);
     if (existMap) {
       return {
         success: false,
@@ -94,6 +97,7 @@ class UserRepository implements AdminRepo {
     }
     const newMap = new mapModel(map);
     const savedMap = await newMap.save();
+    console.log(savedMap)
     return savedMap;
   }
 
@@ -286,7 +290,7 @@ class UserRepository implements AdminRepo {
     map: string
   ): Promise<IAgent | any> {
     const updateData: Partial<IAgent> = { name, email, password, phone };
-
+console.log(123,_id,password)
     if (map) {
       updateData.map = new mongoose.Types.ObjectId(map);
     }
@@ -295,6 +299,7 @@ class UserRepository implements AdminRepo {
       new: true,
       runValidators: true,
     });
+    console.log(123,result)
 
     return result;
   }
@@ -339,7 +344,7 @@ class UserRepository implements AdminRepo {
   }
 
   async getConcerns(): Promise<IConcern | any> {
-    const concerns = await ConcernModel.find();
+    const concerns = await ConcernModel.find().populate("userId");
 
     return concerns;
   }

@@ -53,6 +53,7 @@ class adminController {
   async addMap(req: Request, res: Response, next: NextFunction) {
     try {
       const { sl_no, place, pincode, latitude_longitude } = req.body;
+      console.log(1,"on addmap")
       const saved = await this.adminUsecase.addMap(
         sl_no,
         place,
@@ -234,6 +235,7 @@ class adminController {
   async editAgent(req: Request, res: Response, next: NextFunction) {
     try {
       const { _id, name, email, password, phone, map } = req.body;
+      console.log(_id, name, email, password, phone, map)
       const response = await this.adminUsecase.editAgent(
         _id,
         name,

@@ -6,7 +6,7 @@ import IUser from "../../domainLayer/userDomain";
 const userAuth = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (!authHeader || !authHeader.startsWith("Bearer")) {
     res.json("Authorization header missing or invalid" );
     return;
   }

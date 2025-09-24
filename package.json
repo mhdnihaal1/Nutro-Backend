@@ -36,6 +36,7 @@
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/mongoose": "^5.11.97",
+    "@types/node": "^24.5.2",
     "@types/nodemailer": "^6.4.17",
     "@types/uuid": "^10.0.0",
     "eslint": "^9.14.0",

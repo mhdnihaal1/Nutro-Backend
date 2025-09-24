@@ -84,7 +84,8 @@ class AdminUsecase {
       );
 
       if (passwordMatch) {
-        token =await this.JwtToken.generateToken(data._id, "admin");
+        token = this.JwtToken.generateToken(data._id, "admin");
+        console.log("token",token)
 
         return {
           status: 200,
@@ -169,12 +170,14 @@ class AdminUsecase {
     latitude_longitude: [number, number]
   ) {
     try {
+      console.log(12)
+
       const newMap: IMap = {
         sl_no: sl_no,
         place: place,
         pincode: pincode,
         latitude_longitude: latitude_longitude,
-        _id: new mongoose.Types.ObjectId().toString(), // Use ObjectId directly
+        _id: new mongoose.Types.ObjectId().toString(),  
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -411,7 +414,7 @@ class AdminUsecase {
     map: string
   ) {
     const hashedPassword = await this.EncryptPassword.encryptPassword(password);
-
+console.log(123,hashedPassword)
     const result = await this.AdminRepository.editAgent(
       _id,
       name,

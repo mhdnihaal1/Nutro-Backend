@@ -35,7 +35,7 @@ const agentAuth = async (req: Request, res: Response, next: NextFunction): Promi
 
     next();
   } catch (error: any) {
-    console.error("Error decoding token:", error.message);
+    console.error("Error m decoding token:", error.message);
     res.status(401).json({ success: false, message: "Invalid token" });
   }
 };

@@ -16,11 +16,12 @@ import { Request, Response, NextFunction } from "express";
   const token = authHeader.split(" ")[1];
 
   try {
+    // console.log(123,process.env.JWT_SECRET_KEY) getting this also
     const decodedToken = jwt.verify(
       token,
-      process.env.JWT_SECRET_KEY as string
+      process.env.JWT_SECRET_KEY as string 
     ) as JwtPayload;
-    console.log('am going through middle',decodedToken)
+    // console.log('am going through middle',decodedToken)
 
     if (decodedToken.role !== "admin") {
        res.json("Unauthorized access" );
