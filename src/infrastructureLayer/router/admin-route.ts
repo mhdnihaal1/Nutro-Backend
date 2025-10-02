@@ -42,10 +42,10 @@ const route = express.Router();
 route.post("/addAdmin", (req, res, next) => {
   adminController.addAdmin(req, res, next);
 });
-route.post("/login", (req, res, next) => {
+route.post("/login",adminAuth, (req, res, next) => {
   adminController.login(req, res, next);
 });
-route.get("/getOrders", (req, res, next) => {
+route.get("/getOrders",adminAuth, (req, res, next) => {
   adminController.getOrders(req, res, next);
 });
 
@@ -58,7 +58,7 @@ route.post("/addDeliveryMode",adminAuth, (req, res, next) => {
 });
 
 
-route.get("/getMaps", (req, res, next) => {
+route.get("/getMaps",adminAuth, (req, res, next) => {
   adminController.getMaps(req, res, next);
 });
 route.post("/addMap", adminAuth,(req, res, next) => {
@@ -72,7 +72,7 @@ route.post("/editMap",adminAuth, (req, res, next) => {
 });
 
 
-route.get("/getUsers", (req, res, next) => {
+route.get("/getUsers",adminAuth, (req, res, next) => {
   adminController.getUsers(req, res, next);
 });
 route.post("/UserStatus",adminAuth, (req, res, next) => {
@@ -80,7 +80,7 @@ route.post("/UserStatus",adminAuth, (req, res, next) => {
 });
 
 
-route.get("/getItems", (req, res, next) => {
+route.get("/getItems", adminAuth,(req, res, next) => {
   adminController.getItems(req, res, next);
 });
 route.post("/addClothItem",adminAuth, (req, res, next) => {
@@ -97,7 +97,7 @@ route.post("/deleteItem",adminAuth, (req, res, next) => {
 route.post("/addAgent",adminAuth, (req, res, next) => {
   adminController.addAgent(req, res, next);
 });
-route.get("/getAgents", (req, res, next) => {
+route.get("/getAgents", adminAuth,(req, res, next) => {
   adminController.getAgents(req, res, next);
 });
 route.post("/editAgent",adminAuth, (req, res, next) => {
@@ -111,7 +111,7 @@ route.post("/agentStatus",adminAuth, (req, res, next) => {
 route.post("/addOffers",adminAuth, (req, res, next) => {
   adminController.addOffer(req, res, next);
 });
-route.get("/getOffers", (req, res, next) => {
+route.get("/getOffers",adminAuth, (req, res, next) => {
   adminController.getOffers(req, res, next);
 });
 route.post("/deleteOffer",adminAuth, (req, res, next) => {

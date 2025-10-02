@@ -40,7 +40,7 @@ const route = express.Router();
 route.post("/login", (req, res, next) => {
   agentController.login(req, res, next);
 });
-route.post("/getAgentOrders", (req, res, next) => {
+route.post("/getAgentOrders",agentAuth, (req, res, next) => {
   agentController.getAgentOrders(req, res, next);
 });
 route.post("/acceptOrder", agentAuth,(req, res, next) => {
@@ -49,10 +49,10 @@ route.post("/acceptOrder", agentAuth,(req, res, next) => {
 route.post("/deliveredOrder",agentAuth, (req, res, next) => {
   agentController.deliveredOrder(req, res, next);
 });
-route.post("/getAgentData", (req, res, next) => {
+route.post("/getAgentData",agentAuth, (req, res, next) => {
   agentController.getAgentData(req, res, next);
 });
-route.post("/getMapData", (req, res, next) => {
+route.post("/getMapData",agentAuth, (req, res, next) => {
   agentController.getMapData(req, res, next);
 });
 route.post("/oldPasswordcheck",agentAuth, (req, res, next) => {

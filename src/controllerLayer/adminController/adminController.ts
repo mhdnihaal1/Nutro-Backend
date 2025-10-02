@@ -26,6 +26,7 @@ class adminController {
   async login(req: Request, res: Response, next: NextFunction) {
     try {
       const { email, password } = req.body;
+      console.log(email,password)
       const user = await this.adminUsecase.Login(email, password);
       return res.status(200).json(user);
     } catch (error) {

@@ -69,8 +69,7 @@ class AdminUsecase {
   async Login(email: string, password: string) {
     const admin = await this.AdminRepository.findByEmail(email);
     let token = "";
-
-    if (admin) {
+     if (admin) {
       let data = {
         _id: admin._id,
         name: admin.name,
@@ -82,7 +81,7 @@ class AdminUsecase {
         password,
         admin.password
       );
-
+ 
       if (passwordMatch) {
         token = this.JwtToken.generateToken(data._id, "admin");
         console.log("token",token)

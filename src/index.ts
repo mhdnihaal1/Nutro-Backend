@@ -1,8 +1,8 @@
 import app, { httpServer } from "./infrastructureLayer/config/app";
 import { connectDB } from "./infrastructureLayer/config/connect-DB";
 
-const PORT = 8000; 
-// process.env.PORT || 
+const PORT = process.env.PORT || 8000; 
+
 const startServer = async (): Promise<void> => {
   try {
     await connectDB();

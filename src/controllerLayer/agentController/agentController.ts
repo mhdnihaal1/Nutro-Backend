@@ -32,6 +32,7 @@ class adminController {
     try {
       const { id } = req.body;
       const orders = await this.agentUsecase.agentAccept(id);
+      console.log(orders)
       return res.status(200).json(orders);
     } catch (error) {
       console.log(error);

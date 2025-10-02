@@ -51,7 +51,7 @@ route.post("/signup", (req, res, next) => {
 route.post("/verifyotp", (req, res, next) => {
   userController.verifyOtp(req, res, next);
 });
-route.post("/login", (req, res, next) => {
+route.post("/login", userAuth,(req, res, next) => {
   userController.login(req, res, next);
 });
 route.post("/addtocart" ,userAuth, (req, res, next) => {
@@ -76,20 +76,20 @@ route.post("/placeOrder",userAuth, (req, res, next) => {
   userController.placeOrder(req, res, next);
 });
 
-route.get("/getItems", (req, res, next) => {
+route.get("/getItems", userAuth,(req, res, next) => {
   userController.getItems(req, res, next);
 });
-route.get("/getCart", (req, res, next) => {
+route.get("/getCart",userAuth, (req, res, next) => {
   userController.getCart(req, res, next);
 });
-route.get("/getAddress", (req, res, next) => {
+route.get("/getAddress",userAuth, (req, res, next) => {
   userController.getAddress(req, res, next);
 });
-route.get("/getDeliveryMode", (req, res, next) => {
+route.get("/getDeliveryMode",userAuth, (req, res, next) => {
   userController.getDeliveryMode(req, res, next);
 });
 
-route.post("/getOrders", (req, res, next) => {
+route.post("/getOrders",userAuth, (req, res, next) => {
   userController.getOrders(req, res, next);
 });
 route.post("/changePassword", userAuth,(req, res, next) => {
